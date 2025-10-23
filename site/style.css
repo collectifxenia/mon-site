@@ -1,0 +1,33 @@
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+.hero {
+  background-image: url("image-de-garde.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: white;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 2rem 3rem;
+  border-radius: 1rem;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3rem;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5em;
+}
+
+p {
+  font-size: 1.2rem;
+}

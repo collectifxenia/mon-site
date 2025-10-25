@@ -1,73 +1,97 @@
-html, body {
-  margin: 0;
-  height: 100%;
-  overflow: hidden; /* empêche le scroll */
-  font-family: "Helvetica Neue", Arial, sans-serif;
-}
-
+/* --- Base --- */
 body {
-  background: url("image-de-garde.jpg") no-repeat center center fixed;
-  background-size: cover;
+  margin: 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background: #000;
   color: white;
-}
-
-.hero {
-  height: 100vh;
+  overflow: hidden;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding-top: 6%; /* texte légèrement remonté */
-  text-align: center;
+  justify-content: space-between;
+  transition: color 0.5s ease;
 }
 
+/* --- Section principale --- */
+.hero {
+  background-size: cover;
+  background-position: center;
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 10vh;
+  text-align: center;
+  transition: background 0.6s ease;
+}
+
+.overlay {
+  animation: fadeIn 1.8s ease-in;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.2);
+  transition: color 0.5s ease, text-shadow 0.5s ease;
+}
+
+/* --- Textes principaux --- */
 h1 {
-  font-size: 2rem;
   font-weight: 400;
-  text-transform: none; /* reste en minuscules */
-  margin-bottom: 2rem;
+  font-size: 1.6rem;
+  margin: 0 0 1.5rem 0;
+  letter-spacing: 0.5px;
 }
 
 .contact {
   font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  margin-bottom: 1rem;
+  font-weight: 300;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.6;
 }
 
-.contact a {
-  color: white;
+.email {
+  color: inherit;
   text-decoration: none;
+  font-weight: 300;
+  transition: color 0.3s ease;
 }
 
-.instagram {
-  display: block;
+.email:hover {
+  text-decoration: underline;
+}
+
+/* --- Icône Instagram --- */
+.instagram-icon {
+  width: 22px;
+  height: 22px;
   margin-top: 0.5rem;
+  animation: fadeIn 2.2s ease-in;
+  transition: filter 0.3s ease;
 }
 
-.instagram img {
-  width: 28px; /* adapte selon la taille de ton PNG */
-  height: auto;
-}
-
+/* --- Pied de page --- */
 footer {
   position: absolute;
-  bottom: 1rem;
-  right: 1rem;
+  right: 2%;
+  bottom: 2%;
   text-align: right;
-  color: white;
-}
-
-footer .credits {
   font-size: 0.7rem;
   line-height: 1.2;
-  margin: 0;
+  opacity: 0.9;
+  animation: fadeIn 3s ease-in;
+  transition: color 0.5s ease;
 }
 
-footer .credits em {
+footer em {
   font-style: italic;
+  font-weight: 400;
 }
 
-footer .credits span {
-  font-size: 0.65rem;
+/* --- Animation --- */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

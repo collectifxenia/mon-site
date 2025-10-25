@@ -73,10 +73,19 @@ footer {
   bottom: 2%;
   text-align: right;
   font-size: 0.7rem;
-  line-height: 1.2;
+  line-height: 1.1; /* lignes rapprochées */
   opacity: 0.9;
   animation: fadeIn 3s ease-in;
   transition: color 0.5s ease;
+}
+
+footer p {
+  margin: 2px 0; /* réduit l'espace entre lignes */
+}
+
+footer .footer-line0 {
+  font-style: normal; /* année non italique */
+  font-weight: 300;
 }
 
 footer em {

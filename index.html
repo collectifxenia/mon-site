@@ -22,6 +22,7 @@
   </section>
 
   <footer>
+    <p class="footer-line0"></p> <!-- année -->
     <p class="footer-line1"><em>medusa</em> with Gauthier Füllemann et Denis Sermaxhaj</p>
     <p class="footer-line2">photography © Camille Wetzel</p>
   </footer>
@@ -29,30 +30,31 @@
   <script>
     const heroSection = document.querySelector('.hero');
     const overlay = document.querySelector('.overlay');
+    const footerLine0 = document.querySelector('.footer-line0');
     const footerLine1 = document.querySelector('.footer-line1');
     const footerLine2 = document.querySelector('.footer-line2');
     const footer = document.querySelector('footer');
     const emailLinks = document.querySelectorAll('.email');
     const instagramIcon = document.querySelector('.instagram-icon');
 
-    // Liste des images avec textes et ajustements
+    // Liste des images avec textes et années
     const images = [
-      { file: 'image1.jpg', line1: '<em>medusa</em> with Gauthier Füllemann et Denis Sermaxhaj', line2: 'photography © Camille Wetzel', portrait: false },
-      { file: 'image2.jpg', line1: '<em>paravent</em>', line2: 'photography © Romain Iff', portrait: false },
-      { file: 'image3.jpg', line1: '<em>expanded architecture</em> with Manuel Rossi', line2: 'photography © Manuel Rossi', portrait: false },
-      { file: 'image4.jpg', line1: '<em>fog catcher: transforming legacy</em>', line2: 'drawing © collectif xenia', portrait: true, pos: 'center 80%' },
-      { file: 'image5.jpg', line1: '<em>fog catcher: transforming legacy</em>', line2: 'drawing © collectif xenia', portrait: true, pos: 'center 62%' },
-      { file: 'image6.jpg', line1: '<em>fog catcher: transforming legacy</em>', line2: 'photography © Grigory Sokolinskyl', portrait: false },
-      { file: 'image7.jpg', line1: '<em>satellite: transforming legacy</em>', line2: 'photography © Grigory Sokolinskyl', portrait: false },
+      { file: 'image1.jpg', year: '2024', line1: '<em>medusa</em> with Gauthier Füllemann et Denis Sermaxhaj', line2: 'photography © Camille Wetzel', portrait: false },
+      { file: 'image2.jpg', year: '2023', line1: '<em>paravent</em>', line2: 'photography © Romain Iff', portrait: false },
+      { file: 'image3.jpg', year: '2025', line1: '<em>expanded architecture</em> with Manuel Rossi', line2: 'photography © Manuel Rossi', portrait: false },
+      { file: 'image4.jpg', year: '2024', line1: '<em>fog catcher: transforming legacy</em>', line2: 'drawing © collectif xenia', portrait: true, pos: 'center 80%' },
+      { file: 'image5.jpg', year: '2024', line1: '<em>fog catcher: transforming legacy</em>', line2: 'drawing © collectif xenia', portrait: true, pos: 'center 62%' },
+      { file: 'image6.jpg', year: '2024', line1: '<em>fog catcher: transforming legacy</em>', line2: 'photography © Grigory Sokolinskyl', portrait: false },
+      { file: 'image7.jpg', year: '2024', line1: '<em>satellite: transforming legacy</em>', line2: 'photography © Grigory Sokolinskyl', portrait: false },
     ];
 
-    // Choisir aléatoirement
+    // Choisir une image aléatoire
     const randomImage = images[Math.floor(Math.random() * images.length)];
 
     // Appliquer l'image
     heroSection.style.backgroundImage = `url('${randomImage.file}')`;
 
-    // Ajustement si portrait
+    // Ajustement pour les images portrait (4 et 5)
     if (randomImage.portrait) {
       heroSection.style.backgroundSize = 'contain';
       heroSection.style.backgroundRepeat = 'no-repeat';
@@ -63,7 +65,6 @@
       emailLinks.forEach(e => e.style.color = 'black');
       instagramIcon.style.filter = 'invert(1)';
     } else {
-      // Par défaut : plein écran
       heroSection.style.backgroundSize = 'cover';
       heroSection.style.backgroundPosition = 'center';
       heroSection.style.backgroundColor = 'black';
@@ -73,7 +74,8 @@
       instagramIcon.style.filter = 'invert(0)';
     }
 
-    // Texte du footer
+    // Mettre à jour les textes du footer
+    footerLine0.textContent = randomImage.year;
     footerLine1.innerHTML = randomImage.line1;
     footerLine2.innerHTML = randomImage.line2;
   </script>

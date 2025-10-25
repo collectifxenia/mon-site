@@ -6,28 +6,76 @@
   <title>collectif xenia</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <section class="hero">
     <div class="overlay">
       <h1>collectif xenia</h1>
-
       <p class="contact">
-        <a href="mailto:info@collectifxenia.ch">info@collectifxenia.ch</a><br>
+        <a href="mailto:info@collectifxenia.ch" class="email">info@collectifxenia.ch</a><br>
         +41 79 390 38 02
       </p>
-
-      <!-- Icône Instagram PNG centrée -->
-      <a href="https://www.instagram.com/collectif_xenia/" target="_blank" class="instagram">
-        <img src="instagram-white.png" alt="Instagram">
+      <a href="https://www.instagram.com/collectif_xenia/" target="_blank">
+        <img src="instagram-white.png" alt="Instagram" class="instagram-icon" />
       </a>
     </div>
   </section>
 
   <footer>
-    <p class="credits">
-      <em>medusa</em> with Gauthier Füllemann et Denis Sermaxhaj<br>
-      photography — <span>© Camille Wetzel</span>
-    </p>
+    <p class="footer-line1"><em>medusa</em> with Gauthier Füllemann et Denis Sermaxhaj</p>
+    <p class="footer-line2">photography © Camille Wetzel</p>
   </footer>
+
+  <script>
+    const heroSection = document.querySelector('.hero');
+    const overlay = document.querySelector('.overlay');
+    const footerLine1 = document.querySelector('.footer-line1');
+    const footerLine2 = document.querySelector('.footer-line2');
+    const footer = document.querySelector('footer');
+    const emailLinks = document.querySelectorAll('.email');
+    const instagramIcon = document.querySelector('.instagram-icon');
+
+    // Liste des images avec textes et ajustements
+    const images = [
+      { file: 'image1.jpg', line1: '<em>medusa</em> with Gauthier Füllemann et Denis Sermaxhaj', line2: 'photography © Camille Wetzel', portrait: false },
+      { file: 'image2.jpg', line1: '<em>paravent</em>', line2: 'photography © Romain Iff', portrait: false },
+      { file: 'image3.jpg', line1: '<em>expanded architecture</em> with Manuel Rossi', line2: 'photography © Manuel Rossi', portrait: false },
+      { file: 'image4.jpg', line1: '<em>fog catcher: transforming legacy</em>', line2: 'drawing © collectif xenia', portrait: true, pos: 'center 80%' },
+      { file: 'image5.jpg', line1: '<em>fog catcher: transforming legacy</em>', line2: 'drawing © collectif xenia', portrait: true, pos: 'center 62%' },
+      { file: 'image6.jpg', line1: '<em>fog catcher: transforming legacy</em>', line2: 'photography © Grigory Sokolinskyl', portrait: false },
+      { file: 'image7.jpg', line1: '<em>satellite: transforming legacy</em>', line2: 'photography © Grigory Sokolinskyl', portrait: false },
+    ];
+
+    // Choisir aléatoirement
+    const randomImage = images[Math.floor(Math.random() * images.length)];
+
+    // Appliquer l'image
+    heroSection.style.backgroundImage = `url('${randomImage.file}')`;
+
+    // Ajustement si portrait
+    if (randomImage.portrait) {
+      heroSection.style.backgroundSize = 'contain';
+      heroSection.style.backgroundRepeat = 'no-repeat';
+      heroSection.style.backgroundColor = 'white';
+      heroSection.style.backgroundPosition = randomImage.pos || 'center 60%';
+      overlay.style.color = 'black';
+      footer.style.color = 'black';
+      emailLinks.forEach(e => e.style.color = 'black');
+      instagramIcon.style.filter = 'invert(1)';
+    } else {
+      // Par défaut : plein écran
+      heroSection.style.backgroundSize = 'cover';
+      heroSection.style.backgroundPosition = 'center';
+      heroSection.style.backgroundColor = 'black';
+      overlay.style.color = 'white';
+      footer.style.color = 'white';
+      emailLinks.forEach(e => e.style.color = 'white');
+      instagramIcon.style.filter = 'invert(0)';
+    }
+
+    // Texte du footer
+    footerLine1.innerHTML = randomImage.line1;
+    footerLine2.innerHTML = randomImage.line2;
+  </script>
 </body>
 </html>
